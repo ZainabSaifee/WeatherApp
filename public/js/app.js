@@ -30,6 +30,7 @@ weatherform.addEventListener('submit',(e)=>{
 
     MessageOne.textContent='Loading...'
     MessageTwo.textContent= ''
+   
 
     fetch('/weather?address='+location).then((response)=>{
         response.json().then((data)=>{
@@ -40,7 +41,8 @@ weatherform.addEventListener('submit',(e)=>{
                 // console.log(data.location)
                 // console.log(data.forecast)
                 MessageOne.textContent= data.location
-                MessageTwo.textContent= data.forecast
+                MessageTwo.textContent= data.forecast + '... Temperature = ' + data.temperature + ' but feels like '+ data.feelslike
+                
             }
         })
     }) 

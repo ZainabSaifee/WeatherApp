@@ -9,7 +9,9 @@ const forecast= (latitude,longitude,callback)=>{
       }else if(response.body.error){
         callback(response.body.error.info,undefined);
       }else{
-        callback(undefined,response.body.current.weather_descriptions[0]);
+        const reply = [response.body.current.temperature,response.body.current.feelslike,response.body.current.weather_descriptions[0]]
+        callback(undefined,reply);
+        // callback(undefined,response.body.current.weather_descriptions[0]);
       }
     });
   
